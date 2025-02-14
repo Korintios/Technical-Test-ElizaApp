@@ -11,10 +11,10 @@
  * @var PDO    $pdo      Objeto de conexión PDO.
  */
 
-$host = "127.0.0.1";
-$dbname = "tasks";
-$user = "root";
-$pass = "P@ssw0rd123!";
+$host = "";
+$dbname = "";
+$user = "";
+$pass = "";
 
 try {
     // Crear una nueva conexión PDO
