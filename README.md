@@ -54,9 +54,9 @@ Este proyecto es una aplicación de gestión de tareas que permite agregar, elim
 
 1. Abre el archivo [database.php](http://_vscodecontentref_/0) y configura los parámetros de conexión a la base de datos:
     ```php
-    $host = "";
+    $host = ""; // localhost (Windows) o 127.0.0.1 (Linux)
     $dbname = "";
-    $user = "";
+    $user = ""; // root
     $pass = "";
     ```
 
