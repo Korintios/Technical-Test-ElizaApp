@@ -64,7 +64,7 @@ Este proyecto es una aplicación de gestión de tareas que permite agregar, elim
 
 1. Abre el archivo [app.js](http://_vscodecontentref_/1) y configura la URL base de la API:
     ```javascript
-    const URL = "http://localhost/technical_test";
+    const URL = ""; //Ejemplo: http://localhost:3000/technical_test
     ```
 
 ### Paso 5: Ejecución del Proyecto
