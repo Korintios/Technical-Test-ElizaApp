@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
 
     // URL base de la API
-    const URL = "http://localhost:112/technical_test";
+    const URL = ""; // Ejemplo: http://localhost:3000/technical_test
     
     // Array global de tareas
     let tasks = [];
