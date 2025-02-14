@@ -1,0 +1,184 @@
+/* Reset básico */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Estilos generales */
+body {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #4e9fff 0%, #2667ff 100%);
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+/* Evita interacción con iconos */
+i {
+	pointer-events: none;
+}
+
+/* Contenedor principal */
+.container {
+	width: 100%;
+	max-width: 500px;
+	background: white;
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Input de nueva tarea */
+.input-container {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.task-input {
+	width: 100%;
+	padding: 15px;
+	border: 1px solid #eee;
+	border-radius: 8px;
+	font-size: 16px;
+	transition: border-color 0.3s;
+}
+
+.task-input:focus {
+	outline: none;
+	border-color: #4e9fff;
+}
+
+/* Filtros */
+.filters {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #eee;
+}
+
+.filter-options {
+	display: flex;
+	gap: 20px;
+}
+
+.filter-btn {
+	border: none;
+	background: none;
+	color: #666;
+	font-size: 14px;
+	cursor: pointer;
+	padding: 5px 0;
+	transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+	color: #4e9fff;
+	border-bottom: 2px solid #4e9fff;
+}
+
+/* Lista de tareas */
+.task-list {
+	list-style: none;
+}
+
+/* Ítems de tarea */
+.task-item {
+	display: flex;
+	align-items: center;
+	padding: 15px 0;
+	border-bottom: 1px solid #eee;
+	animation: slideIn 0.3s ease;
+}
+
+/* Animación al cargar tareas */
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Checkbox para completar tarea */
+.task-checkbox {
+	width: 20px;
+	height: 20px;
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	margin-right: 15px;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+.task-checkbox.checked {
+	background: #4e9fff;
+	border-color: #4e9fff;
+}
+
+.task-checkbox.checked::after {
+	content: "\2713";
+	position: absolute;
+	color: white;
+	font-size: 14px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Texto de la tarea */
+.task-text {
+	flex-grow: 1;
+	color: #333;
+	font-size: 15px;
+	transition: color 0.3s;
+}
+
+.task-item.completed .task-text {
+	text-decoration: line-through;
+	color: #999;
+}
+
+/* Botones de acción (editar/eliminar) */
+.task-menu {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 5px;
+	color: #999;
+	font-size: 20px;
+	transition: color 0.3s;
+}
+
+.task-menu:hover {
+	color: #666;
+}
+
+/* Mensaje cuando no hay tareas */
+.no-tasks {
+	text-align: center;
+	color: #999;
+	padding: 20px 0;
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 480px) {
+	body {
+		padding: 10px;
+	}
+
+	.container {
+		padding: 15px;
+	}
+
+	.filter-options {
+		gap: 10px;
+	}
+}
