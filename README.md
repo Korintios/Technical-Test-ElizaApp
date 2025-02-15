@@ -1,4 +1,4 @@
-# Prueba Tecnica - Desarrollador Web
+# Prueba Tecnica - Desarrollador Web Jr
 
 Este proyecto es una aplicación de gestión de tareas que permite agregar, eliminar, actualizar y filtrar tareas a través de llamadas a una API.
 
