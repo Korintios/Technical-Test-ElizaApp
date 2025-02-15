@@ -17,15 +17,26 @@ $user = "";
 $pass = "";
 
 try {
-    // Crear una nueva conexión PDO
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Modo de errores excepciones
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // Modo de obtención de datos
-    ]);
+    // Conectar sin especificar base de datos para crearla si no existe
+    $pdo = new PDO("mysql:host=$host;port=$port;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Crear la base de datos si no existe
+    $pdo->exec("CREATE DATABASE IF NOT EXISTS $dbname");
+
+    // Conectar a la base de datos recién creada
+    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Crear la tabla si no existe
+    $sql = "CREATE TABLE IF NOT EXISTS tasks (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        completed BOOLEAN DEFAULT FALSE
+    )";
+    $pdo->exec($sql);
 } catch (PDOException $e) {
-    // Manejo de errores de conexión
-    http_response_code(500);
-    echo json_encode(['error' => 'Database connection failed', 'message' => $e->getMessage()]);
-    exit();
+    die("Connection error: " . $e->getMessage());
 }
 ?>
